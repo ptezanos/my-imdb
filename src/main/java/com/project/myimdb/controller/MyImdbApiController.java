@@ -1,9 +1,11 @@
 package com.project.myimdb.controller;
 
 import com.project.myimdb.entities.MovieEntity;
+import com.project.myimdb.entities.PersonEntity;
 import com.project.myimdb.model.Movie;
 import com.project.myimdb.model.Person;
 import com.project.myimdb.repository.MovieRepository;
+import com.project.myimdb.repository.PersonRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,6 +20,7 @@ import java.util.List;
 public class MyImdbApiController {
 
     private final MovieRepository movieRepository;
+    private final PersonRepository personRepository;
 
 //    @GetMapping("/cast")
 //    public List<Person> getCast() {
@@ -29,11 +32,11 @@ public class MyImdbApiController {
 //    public Person getDirector(@PathVariable String movieId) {
 //        return retrieveDirector(movieId);
 //    }
-//
-//    @GetMapping("/persons/{personId}")
-//    public Person getPerson(@PathVariable String personId) {
-//        return retrievePerson(personId);
-//    }
+
+    @GetMapping("/persons/{personId}")
+    public PersonEntity getPerson(@PathVariable Long personId) {
+        return personRepository.findById(personId).orElse(null);
+    }
 
     @GetMapping("/movies/{movieId}")
     public MovieEntity getMovie(@PathVariable Long movieId) {
