@@ -43,11 +43,11 @@ public class MyImdbApiController {
         return movieRepository.findById(movieId).orElse(null);
     }
 
-//    @GetMapping("/movies")
-//    public List<Movie> getMovies() {
-//        return retrieveMovies();
-//    }
-//
+    @GetMapping("/movies")
+    public List<MovieEntity> getMovies() {
+        return (List<MovieEntity>) movieRepository.findAll();
+    }
+
 //    @PostMapping("/rating/{movieId}")
 //    public void postRating(@PathVariable String movieId) {
 //        return sendRating(movieId);

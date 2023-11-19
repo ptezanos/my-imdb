@@ -9,21 +9,22 @@ import java.util.List;
 public class MovieEntity {
     @Id
     @Column(name="id")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Column(name="title")
     private String title;
 
-    @Column(name="year")
+    @Column(name="release_year")
     private String year;
 
     @Column(name="director")
-    private String directorByPersonId;
+    private String director;
 
-    @ElementCollection
-    @CollectionTable(name = "persons", joinColumns = @JoinColumn(name = "id"))
-    @Column(name = "cast")
-    private List<String> cast;
+//    @ElementCollection
+//    @CollectionTable(name = "persons", joinColumns = @JoinColumn(name = "id"))
+//    @Column(name = "casting")
+//    private List<String> cast;
 
     @Column(name="poster_url")
     private String poster_url;

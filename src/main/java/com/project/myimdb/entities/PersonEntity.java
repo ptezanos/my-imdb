@@ -1,25 +1,23 @@
 package com.project.myimdb.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "persons")
 public class PersonEntity {
 
     @Id
-    @Column
+    @Column(name="id")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column
+    @Column(name="person_name")
     private String name;
 
-    @Column
+    @Column(name="age")
     private String age;
 
-    @Column
+    @Column(name="photo_url")
     private String photo_url;
 
 }
