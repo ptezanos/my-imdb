@@ -1,9 +1,11 @@
 package com.project.myimdb.entities;
 
 import jakarta.persistence.*;
+import lombok.Getter;
 
 @Entity
 @Table(name = "persons")
+@Getter
 public class PersonEntity {
 
     @Id

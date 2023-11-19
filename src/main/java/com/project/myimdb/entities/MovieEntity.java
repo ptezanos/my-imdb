@@ -1,11 +1,13 @@
 package com.project.myimdb.entities;
 
 import jakarta.persistence.*;
+import lombok.Getter;
 
 import java.util.List;
 
 @Entity
 @Table(name = "movies")
+@Getter
 public class MovieEntity {
     @Id
     @Column(name="id")

@@ -38,6 +38,11 @@ public class MyImdbApiController {
         return personRepository.findById(personId).orElse(null);
     }
 
+    @GetMapping("/persons")
+    public List<PersonEntity> getPersons() {
+        return (List<PersonEntity>) personRepository.findAll();
+    }
+
     @GetMapping("/movies/{movieId}")
     public MovieEntity getMovie(@PathVariable Long movieId) {
         return movieRepository.findById(movieId).orElse(null);
