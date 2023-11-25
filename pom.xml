@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.project</groupId>
-	<artifactId>my-imdb</artifactId>
+	<artifactId>my-imdb-backend</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>My IMDB</name>
 	<description>My IMDB Demo project for Spring Boot</description>
