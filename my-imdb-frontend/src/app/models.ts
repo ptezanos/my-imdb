@@ -1,8 +1,5 @@
-export interface Movies {
-    movies: Movie[]
-  }
-
 export interface Movie {
+    id: string | null
     title: string | null
     release_year: string | null
     director: string | null
