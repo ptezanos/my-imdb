@@ -2,16 +2,12 @@ package com.project.myimdb.controller;
 
 import com.project.myimdb.entities.MovieEntity;
 import com.project.myimdb.entities.PersonEntity;
-import com.project.myimdb.model.Movie;
-import com.project.myimdb.model.Person;
 import com.project.myimdb.repository.MovieRepository;
 import com.project.myimdb.repository.PersonRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 
@@ -34,7 +30,7 @@ public class MyImdbApiController {
 //    }
 
     @GetMapping("/persons/{personId}")
-    public PersonEntity getPerson(@PathVariable Long personId) {
+    public PersonEntity getPersonById(@PathVariable Long personId) {
         return personRepository.findById(personId).orElse(null);
     }
 
@@ -44,7 +40,7 @@ public class MyImdbApiController {
     }
 
     @GetMapping("/movies/{movieId}")
-    public MovieEntity getMovie(@PathVariable Long movieId) {
+    public MovieEntity getMovieById(@PathVariable Long movieId) {
         return movieRepository.findById(movieId).orElse(null);
     }
 
