@@ -1,2 +1,10 @@
-<app-navigation-button [title]="homeTitle" [pageName]="homePageName"></app-navigation-button>
-<p>MOVIES</p>
+<app-navigation-button class="nav-button" [title]="homeTitle" [pageName]="homePageName"></app-navigation-button>
+
+<p class="title">MOVIES</p>
+
+<div class="movieContainer">
+    <div class="movieItem" *ngFor="let movie of movieList">
+        <img class="moviePoster" src="{{movie.poster_url}}"/>
+        <p class="movieTitle">{{movie.title}}</p>
+    </div>
+</div>
