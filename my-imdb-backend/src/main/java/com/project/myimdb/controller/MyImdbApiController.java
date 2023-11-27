@@ -5,6 +5,7 @@ import com.project.myimdb.entities.PersonEntity;
 import com.project.myimdb.repository.MovieRepository;
 import com.project.myimdb.repository.PersonRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -29,21 +30,25 @@ public class MyImdbApiController {
 //        return retrieveDirector(movieId);
 //    }
 
+    @CrossOrigin
     @GetMapping("/persons/{personId}")
     public PersonEntity getPersonById(@PathVariable Long personId) {
         return personRepository.findById(personId).orElse(null);
     }
 
+    @CrossOrigin
     @GetMapping("/persons")
     public List<PersonEntity> getPersons() {
         return (List<PersonEntity>) personRepository.findAll();
     }
 
+    @CrossOrigin
     @GetMapping("/movies/{movieId}")
     public MovieEntity getMovieById(@PathVariable Long movieId) {
         return movieRepository.findById(movieId).orElse(null);
     }
 
+    @CrossOrigin
     @GetMapping("/movies")
     public List<MovieEntity> getMovies() {
         return (List<MovieEntity>) movieRepository.findAll();
