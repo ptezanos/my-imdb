@@ -1,7 +1,11 @@
-package com.project.myimdb.entities;
+package com.project.myimdb.model.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
+
+import java.util.List;
 
 @Entity
 @Table(name = "persons")
@@ -21,5 +25,10 @@ public class PersonEntity {
 
     @Column(name="photo_url")
     private String photo_url;
+
+    @Column(name="movies")
+    @ManyToMany(mappedBy = "cast")
+//    @JsonBackReference
+    private List<MovieEntity> movies;
 
 }

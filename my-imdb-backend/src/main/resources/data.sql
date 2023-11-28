@@ -7,3 +7,12 @@ INSERT INTO persons (person_name, age, photo_url) VALUES ('Zooey Deschannel', '4
 
 INSERT INTO movies (title, release_year, director, poster_url) VALUES ('Inception', '2010', 'Christopher Nolan', 'https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._UX500_.jpg');
 INSERT INTO movies (title, release_year, director, poster_url) VALUES ('(500) Days of Summer', '2009', 'Marc Webb', 'https://m.media-amazon.com/images/M/MV5BMTk5MjM4OTU1OV5BMl5BanBnXkFtZTcwODkzNDIzMw@@._UX500_.jpg');
+
+/*Casting for Inception*/
+INSERT INTO movie_casting (movie_id, person_id) VALUES (1,1);
+INSERT INTO movie_casting (movie_id, person_id) VALUES (1,2);
+INSERT INTO movie_casting (movie_id, person_id) VALUES (1,4);
+
+/*Casting for 500 days of summer*/
+INSERT INTO movie_casting (movie_id, person_id) VALUES (2,4);
+INSERT INTO movie_casting (movie_id, person_id) VALUES (2,5);

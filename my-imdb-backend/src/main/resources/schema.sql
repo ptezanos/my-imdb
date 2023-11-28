@@ -12,3 +12,11 @@ CREATE TABLE IF NOT EXISTS persons (
     age VARCHAR(255),
     photo_url VARCHAR(255)
     );
+
+CREATE TABLE IF NOT EXISTS movie_casting (
+    movie_id BIGINT,
+    person_id BIGINT,
+    FOREIGN KEY (movie_id) REFERENCES movies(id),
+    FOREIGN KEY (person_id) REFERENCES persons(id),
+    PRIMARY KEY (movie_id, person_id)
+    );

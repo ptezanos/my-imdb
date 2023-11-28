@@ -1,11 +1,11 @@
 package com.project.myimdb.repository;
 
-import com.project.myimdb.entities.MovieEntity;
-import org.springframework.data.repository.CrudRepository;
+import com.project.myimdb.model.entities.MovieEntity;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 
 @Repository
-public interface MovieRepository extends CrudRepository<MovieEntity, Long> {
+public interface MovieRepository extends JpaRepository<MovieEntity, Long> {
 
 }

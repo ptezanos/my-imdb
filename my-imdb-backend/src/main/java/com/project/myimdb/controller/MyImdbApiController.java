@@ -1,7 +1,9 @@
 package com.project.myimdb.controller;
 
-import com.project.myimdb.entities.MovieEntity;
-import com.project.myimdb.entities.PersonEntity;
+import com.project.myimdb.model.dtos.MovieDto;
+import com.project.myimdb.model.dtos.PersonDto;
+import com.project.myimdb.model.entities.MovieEntity;
+import com.project.myimdb.model.entities.PersonEntity;
 import com.project.myimdb.repository.MovieRepository;
 import com.project.myimdb.repository.PersonRepository;
 import lombok.RequiredArgsConstructor;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequiredArgsConstructor
@@ -38,8 +41,9 @@ public class MyImdbApiController {
 
     @CrossOrigin
     @GetMapping("/persons")
-    public List<PersonEntity> getPersons() {
-        return (List<PersonEntity>) personRepository.findAll();
+    public List<PersonDto> getPersons() {
+        List<PersonEntity> persons = personRepository.findAll();
+        return persons.stream().map(PersonDto::toPersonDto).collect(Collectors.toList());
     }
 
     @CrossOrigin
@@ -50,8 +54,9 @@ public class MyImdbApiController {
 
     @CrossOrigin
     @GetMapping("/movies")
-    public List<MovieEntity> getMovies() {
-        return (List<MovieEntity>) movieRepository.findAll();
+    public List<MovieDto> getMovies() {
+        List<MovieEntity> movies = movieRepository.findAll();
+        return movies.stream().map(MovieDto::toMovieDto).collect(Collectors.toList());
     }
 
 //    @PostMapping("/rating/{movieId}")
