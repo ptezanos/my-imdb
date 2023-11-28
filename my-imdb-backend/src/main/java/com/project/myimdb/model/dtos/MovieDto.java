@@ -15,16 +15,16 @@ public class MovieDto {
     private String title;
     private String year;
     private String director;
-    private List<PersonDto> cast;
     private String poster_url;
+    private List<PersonDto> cast;
 
     public static MovieDto toMovieDto(MovieEntity movieEntity){
         return MovieDto.builder()
                 .title(movieEntity.getTitle())
                 .year(movieEntity.getYear())
                 .director(movieEntity.getDirector())
-                .cast(toListPersonDto(movieEntity.getCast()))
                 .poster_url(movieEntity.getPoster_url())
+                .cast(toListPersonDto(movieEntity.getCast()))
                 .build();
     }
 
