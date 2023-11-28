@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavigationButtonComponent } from '../../navigation-button/navigation-button.component';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MovieService } from '../../../services/movie.service';
 import { Movie, Person } from '../../../models';
 
@@ -23,10 +23,9 @@ export class SelectedMovieComponent implements OnInit {
 
   cast!: Person[];
 
-  constructor(private route: ActivatedRoute, private movieService: MovieService) {}
+  constructor(private route: ActivatedRoute, private router: Router, private movieService: MovieService) {}
 
   ngOnInit(): void {
-
     this.route.params.subscribe(params => {
       this.selectedMovieId = params['movieId'];
     });
@@ -35,7 +34,10 @@ export class SelectedMovieComponent implements OnInit {
       this.selectedMovie = movie;
       this.cast = movie.cast!;
     });
+  }
 
+  goToSelectedPerson(personId: number): void {
+    this.router.navigate(['/persons', personId]);
   }
 
 }
