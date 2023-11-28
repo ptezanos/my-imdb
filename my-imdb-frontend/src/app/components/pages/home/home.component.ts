@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NavigationButtonComponent } from '../navigation-button/navigation-button.component';
+import { NavigationButtonComponent } from '../../navigation-button/navigation-button.component';
 
 @Component({
   selector: 'app-home',
