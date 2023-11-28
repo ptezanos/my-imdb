@@ -35,8 +35,9 @@ public class MyImdbApiController {
 
     @CrossOrigin
     @GetMapping("/persons/{personId}")
-    public PersonEntity getPersonById(@PathVariable Long personId) {
-        return personRepository.findById(personId).orElse(null);
+    public PersonDto getPersonById(@PathVariable Long personId) {
+        PersonEntity person = personRepository.findById(personId).orElse(null);
+        return PersonDto.toPersonDto(person);
     }
 
     @CrossOrigin
@@ -48,8 +49,9 @@ public class MyImdbApiController {
 
     @CrossOrigin
     @GetMapping("/movies/{movieId}")
-    public MovieEntity getMovieById(@PathVariable Long movieId) {
-        return movieRepository.findById(movieId).orElse(null);
+    public MovieDto getMovieById(@PathVariable Long movieId) {
+        MovieEntity movie = movieRepository.findById(movieId).orElse(null);
+        return MovieDto.toMovieDto(movie);
     }
 
     @CrossOrigin
