@@ -12,6 +12,8 @@ import java.util.stream.Collectors;
 @Getter
 public class PersonDto {
 
+
+    private Long personId;
     private String name;
     private String age;
     private String photo_url;
@@ -19,6 +21,7 @@ public class PersonDto {
 
     public static PersonDto toPersonDto(PersonEntity personEntity){
         return PersonDto.builder()
+                .personId(personEntity.getId())
                 .name(personEntity.getName())
                 .age(personEntity.getAge())
                 .photo_url(personEntity.getPhoto_url())
@@ -28,6 +31,7 @@ public class PersonDto {
 
     public static PersonDto toPersonDtoLimited(PersonEntity personEntity){
         return PersonDto.builder()
+                .personId(personEntity.getId())
                 .name(personEntity.getName())
                 .age(personEntity.getAge())
                 .photo_url(personEntity.getPhoto_url())

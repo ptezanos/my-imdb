@@ -12,6 +12,7 @@ import java.util.stream.Collectors;
 @Getter
 public class MovieDto {
 
+    private Long movieId;
     private String title;
     private String year;
     private String director;
@@ -20,6 +21,7 @@ public class MovieDto {
 
     public static MovieDto toMovieDto(MovieEntity movieEntity){
         return MovieDto.builder()
+                .movieId(movieEntity.getId())
                 .title(movieEntity.getTitle())
                 .year(movieEntity.getYear())
                 .director(movieEntity.getDirector())
@@ -30,6 +32,7 @@ public class MovieDto {
 
     public static MovieDto toMovieDtoLimited(MovieEntity movieEntity){
         return MovieDto.builder()
+                .movieId(movieEntity.getId())
                 .title(movieEntity.getTitle())
                 .year(movieEntity.getYear())
                 .director(movieEntity.getDirector())
