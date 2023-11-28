@@ -17,9 +17,9 @@ export class MovieService {
       );
     }
 
-    getMovie(id: string): Observable<Movie> {
+    getMovie(movieId: number): Observable<Movie> {
       return this.http.get<Movie>(
-        `http://localhost:8085/movies/?id=${id}`
+        `http://localhost:8085/movies/${movieId}`
       );
     }
   

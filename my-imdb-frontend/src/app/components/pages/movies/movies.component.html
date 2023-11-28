@@ -3,8 +3,10 @@
 <p class="title">MOVIES</p>
 
 <div class="movieContainer">
-    <div class="movieItem" *ngFor="let movie of movieList">
-        <img class="moviePoster" src="{{movie.poster_url}}"/>
-        <p class="movieTitle">{{movie.title}}</p>
+    <div class="movieItem" *ngFor="let movie of movieList" (click)="goToSelectedMovie(movie.movieId!)">
+
+            <img class="moviePoster" src="{{movie.poster_url}}"/>
+            <p class="movieTitle">{{movie.title}}</p>
+
     </div>
 </div>

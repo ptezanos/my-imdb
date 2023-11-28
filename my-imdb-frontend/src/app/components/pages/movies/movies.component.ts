@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { NavigationButtonComponent } from '../../navigation-button/navigation-button.component';
 import { MovieService } from '../../../services/movie.service';
 import { Movie } from '../../../models';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-movies',
@@ -19,7 +20,7 @@ export class MoviesComponent implements OnInit{
   homeTitle: string = "HOME";
   homePageName: string = "";
 
-  constructor(private movieService: MovieService) { }
+  constructor(private router: Router, private movieService: MovieService) { }
 
   ngOnInit(): void {
     this.loadMovies();
@@ -31,6 +32,10 @@ export class MoviesComponent implements OnInit{
         this.movieList=movies;
       }
     );
+  }
+
+  goToSelectedMovie(movieId: number): void {
+    this.router.navigate(['/movies', movieId]);
   }
 
 }
