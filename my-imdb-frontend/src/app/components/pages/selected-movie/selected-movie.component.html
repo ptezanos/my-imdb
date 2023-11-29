@@ -6,7 +6,7 @@
     <option *ngFor="let value of ratingValues" [value]="value">{{value}}</option>
 </select>
 <button (click)="rateMovie()">Rate!</button>
-<p>My IMDB rating: {{rating}}</p>
+<p>My IMDB rating: {{movieRating}}</p>
 
 <div class="selectedMovieContainer">
     <img class="moviePoster" src="{{selectedMovie.poster_url}}"/>

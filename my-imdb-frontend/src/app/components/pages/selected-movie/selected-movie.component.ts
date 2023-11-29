@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavigationButtonComponent } from '../../navigation-button/navigation-button.component';
-import { Movie, Person, UserRating } from '../../../models';
+import { Movie, MovieRating, Person, UserRating } from '../../../models';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MovieService } from '../../../services/movie.service';
 import { FormsModule } from '@angular/forms';
@@ -27,7 +27,8 @@ export class SelectedMovieComponent implements OnInit {
   selectedRating!: number;
   ratingValues = [0, 1, 2, 3, 4, 5];
 
-  rating!: number;
+  movieRating!: number;
+  movieRatingObject!: MovieRating;
 
   constructor(private route: ActivatedRoute, private router: Router, private movieService: MovieService) {}
 
@@ -42,6 +43,7 @@ export class SelectedMovieComponent implements OnInit {
       movie => {
         this.selectedMovie = movie;
         this.cast = movie.cast!;
+        this.movieRating = (movie.ratingCounter! > 0) ? movie.ratingSum!/movie.ratingCounter! : 0;
       }
     );
   }
@@ -55,7 +57,8 @@ export class SelectedMovieComponent implements OnInit {
 
     this.movieService.rateMovie(this.selectedMovieId, userRating).subscribe(
       ratingResponse => {
-        this.rating = ratingResponse;
+        this.movieRatingObject = ratingResponse;
+        this.movieRating = (this.movieRatingObject.ratingCounter > 0) ? this.movieRatingObject.ratingSum/this.movieRatingObject.ratingCounter : 0;
       }
     );
   }

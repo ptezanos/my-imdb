@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Movie, UserRating } from '../models';
+import { Movie, MovieRating, UserRating } from '../models';
 
 @Injectable({
   providedIn: 'root'
@@ -22,8 +22,8 @@ export class MovieService {
       );
     }
 
-    rateMovie(movieId: number, userRating: UserRating): Observable<number> {
-      return this.http.post<number>(
+    rateMovie(movieId: number, userRating: UserRating): Observable<MovieRating> {
+      return this.http.post<MovieRating>(
         `http://localhost:8085/movies/${movieId}`, userRating
       );
     }

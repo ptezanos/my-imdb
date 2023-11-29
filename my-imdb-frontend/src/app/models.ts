@@ -5,10 +5,17 @@ export interface Movie {
     director: string | null;
     poster_url: string | null;
     cast: Person[] | null;
+    ratingCounter: number | null;
+    ratingSum: number | null;
   }
 
   export interface UserRating {
     rating: number;
+  }
+
+  export interface MovieRating {
+    ratingCounter: number;
+    ratingSum: number;
   }
 
   export interface Person {
