@@ -1,5 +1,6 @@
 package com.project.myimdb.controller;
 
+import com.project.myimdb.model.UserRating;
 import com.project.myimdb.model.dtos.MovieDto;
 import com.project.myimdb.model.dtos.PersonDto;
 import com.project.myimdb.model.entities.MovieEntity;
@@ -7,11 +8,9 @@ import com.project.myimdb.model.entities.PersonEntity;
 import com.project.myimdb.repository.MovieRepository;
 import com.project.myimdb.repository.PersonRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -21,17 +20,6 @@ public class MyImdbApiController {
 
     private final MovieRepository movieRepository;
     private final PersonRepository personRepository;
-
-//    @GetMapping("/cast")
-//    public List<Person> getCast() {
-//        RestTemplate restTemplate = new RestTemplate();
-//        return retrieveCast();
-//    }
-//
-//    @GetMapping("/director/{movieId}")
-//    public Person getDirector(@PathVariable String movieId) {
-//        return retrieveDirector(movieId);
-//    }
 
     @CrossOrigin
     @GetMapping("/persons/{personId}")
@@ -61,14 +49,13 @@ public class MyImdbApiController {
         return movies.stream().map(MovieDto::toMovieDto).collect(Collectors.toList());
     }
 
-//    @PostMapping("/rating/{movieId}")
-//    public void postRating(@PathVariable String movieId) {
-//        return sendRating(movieId);
-//    }
-//
-//    @PostMapping("/comments/{movieId}")
-//    public void postComment(@PathVariable String movieId) {
-//        return sendComment(movieId);
-//    }
+    @CrossOrigin
+    @PostMapping("/movies/{movieId}")
+    public BigDecimal postRating(@PathVariable String movieId, @RequestBody UserRating userRating) {
+        System.out.println("Received user rating:" + userRating.getRating());
+//        return null;
+        return BigDecimal.valueOf(userRating.getRating());
+    }
+
 
 }
