@@ -7,6 +7,10 @@ export interface Movie {
     cast: Person[] | null;
   }
 
+  export interface UserRating {
+    rating: number;
+  }
+
   export interface Person {
     personId: number | null;
     name: string | null;

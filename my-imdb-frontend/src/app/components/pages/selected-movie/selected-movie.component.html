@@ -1,13 +1,20 @@
 <app-navigation-button class="nav-button" [title]="moviesTitle" [pageName]="moviesPageName"></app-navigation-button>
 <p>Selected movie: {{ selectedMovie.title }}</p>
 
+<p>Rate this movie</p>
+<select [(ngModel)]="selectedRating" name="selectedRating">
+    <option *ngFor="let value of ratingValues" [value]="value">{{value}}</option>
+</select>
+<button (click)="rateMovie()">Rate!</button>
+<p>My IMDB rating: {{rating}}</p>
+
 <div class="selectedMovieContainer">
     <img class="moviePoster" src="{{selectedMovie.poster_url}}"/>
     <p class="movieTitle">Title: {{selectedMovie.title}}</p>
     <p class="movieYear">Release date: {{selectedMovie.year}}</p>
     <p class="movieDirector">Directed by: {{selectedMovie.director}}</p>
 
-    <p class="castTitle">Starring:</p>
+    <p class="castTitle">Cast:</p>
     <div class="castContainer">
         <div class="castItem" *ngFor="let person of cast" (click)="goToSelectedPerson(person.personId!)">
             <img class="castPhoto" src="{{person.photo_url}}"/>
