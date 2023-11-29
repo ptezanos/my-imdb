@@ -1,14 +1,18 @@
 <app-navigation-button class="nav-button" [title]="moviesTitle" [pageName]="moviesPageName"></app-navigation-button>
 <p>Selected movie: {{ selectedMovie.title }}</p>
 
-<img class="moviePoster" src="{{selectedMovie.poster_url}}"/>
-<p class="movieTitle">{{selectedMovie.title}}</p>
-<p class="movieYear">{{selectedMovie.year}}</p>
-<p>Director:</p>
-<p>{{selectedMovie.director}}</p>
-<p>Cast:</p>
-<div *ngFor="let person of cast" (click)="goToSelectedPerson(person.personId!)">
-    <img src="{{person.photo_url}}"/>
-    <p>{{person.name}}</p>
+<div class="selectedMovieContainer">
+    <img class="moviePoster" src="{{selectedMovie.poster_url}}"/>
+    <p class="movieTitle">Title: {{selectedMovie.title}}</p>
+    <p class="movieYear">Release date: {{selectedMovie.year}}</p>
+    <p class="movieDirector">Directed by: {{selectedMovie.director}}</p>
+
+    <p class="castTitle">Starring:</p>
+    <div class="castContainer">
+        <div class="castItem" *ngFor="let person of cast" (click)="goToSelectedPerson(person.personId!)">
+            <img class="castPhoto" src="{{person.photo_url}}"/>
+            <p class="castName">{{person.name}}</p>
+        </div>
+    </div>
 </div>
 

@@ -1,2 +1,16 @@
 <app-navigation-button class="nav-button" [title]="moviesTitle" [pageName]="moviesPageName"></app-navigation-button>
-<p>selected-person works!</p>
+<p>Selected person: {{ selectedPerson.name }}</p>
+
+<div class="selectedPersonContainer">
+    <img class="personPhoto" src="{{selectedPerson.photo_url}}"/>
+    <p class="personName">{{selectedPerson.name}}</p>
+    <p class="personAge">{{selectedPerson.age}}</p>
+
+    <p class="moviesTitle">Appears in:</p>
+    <div class="moviesContainer">
+        <div  class="movieItem" *ngFor="let movie of movies" (click)="goToSelectedMovie(movie.movieId!)">
+            <img class="moviePoster" src="{{movie.poster_url}}"/>
+            <p class="movieTitle">{{movie.title}}</p>
+        </div>
+    </div>
+</div>

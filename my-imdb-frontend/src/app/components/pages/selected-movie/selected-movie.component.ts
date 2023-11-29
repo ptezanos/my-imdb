@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavigationButtonComponent } from '../../navigation-button/navigation-button.component';
+import { Movie, Person } from '../../../models';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MovieService } from '../../../services/movie.service';
-import { Movie, Person } from '../../../models';
 
 @Component({
   selector: 'app-selected-movie',
