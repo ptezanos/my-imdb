@@ -5,8 +5,8 @@ INSERT INTO persons (person_name, age, photo_url) VALUES ('Christopher Nolan', '
 INSERT INTO persons (person_name, age, photo_url) VALUES ('Joseph Gordon-Levitt', '42', 'https://m.media-amazon.com/images/M/MV5BMTY3NTk0NDI3Ml5BMl5BanBnXkFtZTgwNDA3NjY0MjE@._UX500_.jpg');
 INSERT INTO persons (person_name, age, photo_url) VALUES ('Zooey Deschannel', '43', 'https://m.media-amazon.com/images/M/MV5BMTgzMjM2NDE1OF5BMl5BanBnXkFtZTcwMjA2NDU5OA@@._UX500_.jpg');
 
-INSERT INTO movies (title, release_year, director, poster_url) VALUES ('Inception', '2010', 'Christopher Nolan', 'https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._UX500_.jpg');
-INSERT INTO movies (title, release_year, director, poster_url) VALUES ('(500) Days of Summer', '2009', 'Marc Webb', 'https://m.media-amazon.com/images/M/MV5BMTk5MjM4OTU1OV5BMl5BanBnXkFtZTcwODkzNDIzMw@@._UX500_.jpg');
+INSERT INTO movies (title, release_year, director, poster_url, rating_counter, rating_sum) VALUES ('Inception', '2010', 'Christopher Nolan', 'https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._UX500_.jpg', 0, 0);
+INSERT INTO movies (title, release_year, director, poster_url, rating_counter, rating_sum) VALUES ('(500) Days of Summer', '2009', 'Marc Webb', 'https://m.media-amazon.com/images/M/MV5BMTk5MjM4OTU1OV5BMl5BanBnXkFtZTcwODkzNDIzMw@@._UX500_.jpg', 0, 0);
 
 /*Casting for Inception*/
 INSERT INTO movie_casting (movie_id, person_id) VALUES (1,1);

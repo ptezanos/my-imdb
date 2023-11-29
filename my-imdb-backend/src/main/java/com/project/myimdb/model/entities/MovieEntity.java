@@ -1,15 +1,19 @@
 package com.project.myimdb.model.entities;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.project.myimdb.model.dtos.MovieDto;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
 @Entity
 @Table(name = "movies")
 @Getter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class MovieEntity {
     @Id
     @Column(name="id")
@@ -27,7 +31,6 @@ public class MovieEntity {
 
     @Column(name = "cast")
     @ManyToMany
-//    @JsonManagedReference
     @JoinTable(
             name = "movie_casting",
             joinColumns = @JoinColumn(name = "movie_id", referencedColumnName = "id"),
@@ -36,5 +39,11 @@ public class MovieEntity {
 
     @Column(name="poster_url")
     private String poster_url;
+
+    @Column(name="rating_counter")
+    private Integer ratingCounter;
+
+    @Column(name="rating_sum")
+    private Integer ratingSum;
 
 }

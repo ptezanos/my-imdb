@@ -3,7 +3,9 @@ CREATE TABLE IF NOT EXISTS movies (
     title VARCHAR(255),
     release_year VARCHAR(255),
     director VARCHAR(255),
-    poster_url VARCHAR(255)
+    poster_url VARCHAR(255),
+    rating_counter INT,
+    rating_sum INT
     );
 
 CREATE TABLE IF NOT EXISTS persons (

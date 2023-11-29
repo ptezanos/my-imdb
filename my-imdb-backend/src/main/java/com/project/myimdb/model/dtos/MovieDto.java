@@ -5,6 +5,7 @@ import com.project.myimdb.model.entities.PersonEntity;
 import lombok.Builder;
 import lombok.Getter;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -42,6 +43,11 @@ public class MovieDto {
 
     public static List<PersonDto> toListPersonDto(List<PersonEntity> personEntityList){
         return personEntityList.stream().map(PersonDto::toPersonDtoLimited).collect(Collectors.toList());
+    }
+
+    public BigDecimal calculateRating(MovieEntity movieEntity){
+
+        return null;
     }
 
 }
